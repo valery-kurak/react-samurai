@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import s from './MyPosts.modules.css';
 import Post from './Post/Post';
 
@@ -10,8 +10,8 @@ const MyPosts = () => {
           New post
         </div>
         <div className={s.posts}>
-          <Post likesCount={4} />
-          <Post likesCount={2}/>
+          <Post message='post 1' likesCount='4' />
+          <Post message='post 2' likesCount='2'/>
         </div>
       </div>
   )
