@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user-avatar.png";
 import { NavLink } from "react-router-dom";
-import { followAPI, unfollowAPI } from "../../api/api";
+import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -30,24 +30,10 @@ let Users = (props) => {
                     </div>
                     <div>
                         { u.followed
-                            ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleFollowingProgress(true, u.id);
-                                unfollowAPI.unfollowUser(u.id).then(data => {
-                                    if (data.resultCode == 0) {
-                                        props.unfollow(u.id);
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                });
-                            } }>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleFollowingProgress(true, u.id);
-                                followAPI.followUser(u.id).then(data => {
-                                    if (data.resultCode == 0) {
-                                        props.follow(u.id);
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                });
-                            } }>Follow</button> }
+                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
+                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      onClick={() => { props.follow(u.id) }}>Follow</button> }
                     </div>
                 </span>
                 <span>
