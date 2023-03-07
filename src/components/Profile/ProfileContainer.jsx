@@ -8,8 +8,11 @@ import { compose } from "redux";
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.params.userId;
-        if(!userId) {
+        if (!userId) {
             userId = this.props.authorizedUserId;
+            if (!userId) {
+                this.props.history.push("/login");
+            }
         }
         this.props.getUserProfile(userId);
         this.props.getUserStatus(userId);
