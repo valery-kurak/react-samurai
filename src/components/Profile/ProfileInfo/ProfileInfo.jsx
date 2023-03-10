@@ -4,14 +4,12 @@ import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
+    console.log(props.profile)
     if (!props.profile) {
         return <div><Preloader /></div>
     }
     return (
         <div>
-            {/*<div>*/}
-            {/*    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="main"/>*/}
-            {/*</div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large} />
                 <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
