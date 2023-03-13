@@ -4,9 +4,8 @@ import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
-    console.log(props.profile)
     if (!props.profile) {
-        return <div><Preloader /></div>
+        return <Preloader />
     }
     return (
         <div>
