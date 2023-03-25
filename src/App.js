@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Login from "./components/Login/Login";
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -37,7 +36,7 @@ class App extends React.Component {
                         <Route path='profile/:userId'
                                element={<ProfileContainer/>}/>
                         <Route path='login'
-                               element={<Login/>}/>
+                               element={<Lo gin/>}/>
                         <Route path='users/*'
                                element={<UsersContainer/>}/>
                         <Route path='news/*'
